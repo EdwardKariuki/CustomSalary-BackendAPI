@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserSalaryController;
 
 /*
@@ -29,6 +30,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     Route::put('/user-salary/{id}', [UserSalaryController::class, 'update']);
 // });
 
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
 // Create or update user salary details
 Route::post('/user-salary', [UserSalaryController::class, 'storeOrUpdate']);
 // List all user salary records (for Admin panel)
